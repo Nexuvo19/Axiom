@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AXIOM — Premium Website Design & Development Agency</title>
+<meta name="description" content="AXIOM is a premium website design & development agency crafting luxury business websites, e-commerce, portfolios, landing pages and enterprise web solutions." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   AXIOM — Premium Web Design & Development Agency
+   Palette: Deep Black / Soft White / Pro Blue
+   ========================================================= */
+
+:root{
+  --black:#0A0A0B;
+  --black-2:#0f0f12;
+  --black-3:#15151a;
+  --black-4:#1c1c22;
+  --white:#F6F7FA;
+  --white-dim:rgba(246,247,250,.72);
+  --white-soft:rgba(246,247,250,.5);
+  --white-faint:rgba(246,247,250,.12);
+  --white-line:rgba(246,247,250,.08);
+  --blue:#4F7DF3;
+  --blue-2:#7AA0FF;
+  --blue-soft:rgba(79,125,243,.18);
+  --blue-glow:rgba(79,125,243,.5);
+  --gold:#E7C778;
+  --green:#5BE4A3;
+  --glass:rgba(255,255,255,.04);
+  --glass-border:rgba(255,255,255,.08);
+  --radius:18px;
+  --radius-lg:28px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --container:1280px;
+  --nav-h:78px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--black);color:var(--white);font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{line-height:1.55;font-weight:400;letter-spacing:-0.01em;min-height:100vh}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+::selection{background:var(--blue);color:#fff}
+
+/* ---------- Typography ---------- */
+h1,h2,h3,h4{font-family:'Space Grotesk','Inter',sans-serif;font-weight:600;letter-spacing:-0.035em;line-height:1.04}
+h1{font-size:clamp(40px,6.8vw,104px);font-weight:500}
+h2{font-size:clamp(30px,4.4vw,64px);font-weight:500}
+h3{font-size:clamp(22px,2vw,30px);font-weight:500;letter-spacing:-0.02em}
+h4{font-size:18px;font-weight:500;letter-spacing:-0.01em}
+p{color:var(--white-dim);font-size:16px}
+.lead{font-size:clamp(17px,1.3vw,21px);color:var(--white-dim);max-width:62ch;line-height:1.55}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--white-soft);font-weight:500}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 14px var(--blue-glow)}
+.gradient-text{background:linear-gradient(180deg,#fff 0%,#fff 40%,rgba(246,247,250,.55) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.blue-text{color:var(--blue)}
+.gold-text{color:var(--gold)}
+
+/* ---------- Layout ---------- */
+.container{max-width:var(--container);margin:0 auto;padding:0 28px;position:relative}
+.container-sm{max-width:980px;margin:0 auto;padding:0 28px;position:relative}
+section{position:relative;padding:120px 0;overflow:hidden}
+section.tight{padding:80px 0}
+section .container{z-index:2}
+.page{display:none;animation:pageIn .8s var(--ease-out) both}
+.page.active{display:block}
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(14px) scale(.998);filter:blur(6px)}
+  to{opacity:1;transform:none;filter:blur(0)}
+}
+
+/* ---------- Cursor ---------- */
+.cursor,.cursor-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;mix-blend-mode:difference}
+.cursor{width:34px;height:34px;border:1px solid rgba(246,247,250,.8);transform:translate(-50%,-50%);transition:transform .25s var(--ease),width .25s,height .25s,opacity .2s}
+.cursor-dot{width:5px;height:5px;background:var(--white);transform:translate(-50%,-50%)}
+.cursor.hover{width:64px;height:64px;border-color:var(--blue);background:rgba(79,125,243,.08)}
+@media (hover:none){.cursor,.cursor-dot{display:none}}
+
+/* ---------- Background ambience ---------- */
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-grid{position:absolute;inset:-2px;background-image:
+  linear-gradient(rgba(246,247,250,.045) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(246,247,250,.045) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000 30%,transparent 80%);opacity:.55}
+.bg-orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;mix-blend-mode:screen}
+.bg-orb.a{width:540px;height:540px;background:radial-gradient(circle,#4F7DF3 0%,transparent 70%);top:-160px;left:-120px;animation:floatA 16s ease-in-out infinite}
+.bg-orb.b{width:620px;height:620px;background:radial-gradient(circle,#1d3a8a 0%,transparent 70%);bottom:-200px;right:-160px;animation:floatB 22s ease-in-out infinite}
+.bg-noise{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>")}
+.bg-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.7) 100%)}
+@keyframes floatA{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,40px)}}
+@keyframes floatB{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,-30px)}}
+
+/* ---------- Loader ---------- */
+.loader{position:fixed;inset:0;background:var(--black);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:28px;transition:opacity .8s var(--ease),visibility .8s}
+.loader.done{opacity:0;visibility:hidden}
+.loader-mark{width:64px;height:64px;border-radius:50%;border:1px solid var(--white-faint);position:relative;display:flex;align-items:center;justify-content:center}
+.loader-mark::before,.loader-mark::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid transparent;border-top-color:var(--blue);animation:spin 1.2s linear infinite}
+.loader-mark::after{inset:8px;border-top-color:var(--white);animation-duration:1.8s;animation-direction:reverse}
+.loader-text{font-family:'Space Grotesk';font-size:13px;letter-spacing:.4em;color:var(--white-soft);text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Page transition overlay ---------- */
+.page-trans{position:fixed;inset:0;z-index:9500;pointer-events:none;display:flex}
+.page-trans .panel{flex:1;background:var(--black);transform:scaleY(0);transform-origin:bottom;transition:transform .55s var(--ease-out)}
+.page-trans.run .panel{transform:scaleY(1);transform-origin:top}
+.page-trans .panel:nth-child(2){transition-delay:.05s}
+.page-trans .panel:nth-child(3){transition-delay:.1s}
+.page-trans .panel:nth-child(4){transition-delay:.15s}
+.page-trans .panel:nth-child(5){transition-delay:.2s}
+
+/* ---------- Navigation ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(10,10,11,.55);border-bottom:1px solid var(--white-line);transition:background .4s var(--ease)}
+.nav.scrolled{background:rgba(10,10,11,.85)}
+.nav .container{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--container);padding:0 28px}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk';font-weight:600;letter-spacing:.04em;font-size:18px}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--blue),#1a3aa8);display:grid;place-items:center;box-shadow:0 6px 20px rgba(79,125,243,.4);position:relative;overflow:hidden}
+.brand-mark svg{width:18px;height:18px}
+.nav-links{display:flex;gap:38px;align-items:center}
+.nav-links a{position:relative;font-size:14px;color:var(--white-dim);transition:color .25s var(--ease);font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:1px;background:var(--blue);box-shadow:0 0 12px var(--blue-glow)}
+.nav-cta{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border-radius:999px;background:var(--white);color:var(--black);font-weight:600;font-size:13px;letter-spacing:.02em;transition:transform .25s var(--ease),box-shadow .25s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,255,255,.18)}
+.menu-btn{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--white-line);align-items:center;justify-content:center}
+.menu-btn span{display:block;width:18px;height:1.5px;background:var(--white);position:relative}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:var(--white)}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+
+/* Mobile menu */
+.mobile-menu{position:fixed;inset:0;z-index:180;background:rgba(10,10,11,.96);backdrop-filter:blur(20px);transform:translateY(-100%);transition:transform .55s var(--ease-out);display:flex;flex-direction:column;padding:120px 32px 40px;gap:24px;overflow-y:auto}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu a{font-family:'Space Grotesk';font-size:34px;color:var(--white);font-weight:500;letter-spacing:-.02em;border-bottom:1px solid var(--white-line);padding-bottom:18px}
+.mobile-menu a.active{color:var(--blue)}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:14px;letter-spacing:.01em;transition:transform .3s var(--ease),box-shadow .3s,background .3s,color .3s,border-color .3s;will-change:transform;position:relative;overflow:hidden}
+.btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--white);color:var(--black);box-shadow:0 14px 40px -10px rgba(255,255,255,.4)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 50px -10px rgba(255,255,255,.55)}
+.btn-blue{background:linear-gradient(135deg,var(--blue),#3559c4);color:#fff;box-shadow:0 14px 40px -10px var(--blue-glow)}
+.btn-blue:hover{transform:translateY(-3px);box-shadow:0 22px 56px -10px var(--blue-glow)}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--white-faint)}
+.btn-ghost:hover{background:var(--white);color:var(--black)}
+
+/* ---------- Cards (glass) ---------- */
+.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:32px;overflow:hidden;transition:transform .4s var(--ease),border-color .4s,background .4s}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(79,125,243,.18),transparent 45%);opacity:0;transition:opacity .4s var(--ease);pointer-events:none}
+.card:hover::before{opacity:1}
+.card:hover{transform:translateY(-6px);border-color:rgba(79,125,243,.35)}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:calc(var(--nav-h) + 60px);padding-bottom:60px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero h1 span.line{display:block;overflow:hidden}
+.hero h1 span.line i{display:inline-block;font-style:normal;transform:translateY(120%);animation:lineUp 1s var(--ease-out) forwards}
+.hero h1 .line:nth-child(2) i{animation-delay:.12s}
+.hero h1 .line:nth-child(3) i{animation-delay:.24s}
+@keyframes lineUp{to{transform:translateY(0)}}
+.hero .lead{margin:28px 0 36px;opacity:0;animation:fadeUp .8s var(--ease-out) .55s forwards}
+.hero-cta-row{display:flex;flex-wrap:wrap;gap:14px;opacity:0;animation:fadeUp .8s var(--ease-out) .7s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+.hero-meta{margin-top:60px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--white-line);border-bottom:1px solid var(--white-line);opacity:0;animation:fadeUp .9s var(--ease-out) .9s forwards}
+.hero-meta div{padding:22px 18px;border-right:1px solid var(--white-line)}
+.hero-meta div:last-child{border-right:0}
+.hero-meta strong{display:block;font-family:'Space Grotesk';font-size:30px;font-weight:500;letter-spacing:-.03em;color:var(--white)}
+.hero-meta span{font-size:12px;color:var(--white-soft);letter-spacing:.12em;text-transform:uppercase}
+
+/* 3D Visual */
+.hero-visual{position:relative;height:560px;perspective:1500px;perspective-origin:50% 50%}
+.scene{position:absolute;inset:0;transform-style:preserve-3d;animation:sceneFloat 9s ease-in-out infinite}
+@keyframes sceneFloat{0%,100%{transform:rotateX(8deg) rotateY(-12deg)}50%{transform:rotateX(12deg) rotateY(-6deg)}}
+.ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(255,255,255,.12);transform-style:preserve-3d}
+.ring.r1{width:520px;height:520px;margin:-260px 0 0 -260px;border-color:rgba(79,125,243,.5);animation:r1 18s linear infinite}
+.ring.r2{width:400px;height:400px;margin:-200px 0 0 -200px;border-color:rgba(255,255,255,.18);animation:r1 24s linear reverse infinite}
+.ring.r3{width:280px;height:280px;margin:-140px 0 0 -140px;border-color:rgba(231,199,120,.4);animation:r1 30s linear infinite}
+@keyframes r1{to{transform:rotateZ(360deg) rotateX(70deg)}}
+.core{position:absolute;top:50%;left:50%;width:160px;height:160px;margin:-80px 0 0 -80px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#7AA0FF,#1a3aa8 60%,#0a1240);box-shadow:0 0 80px rgba(79,125,243,.7),inset 0 0 60px rgba(0,0,0,.45);animation:corePulse 4s ease-in-out infinite}
+@keyframes corePulse{0%,100%{box-shadow:0 0 80px rgba(79,125,243,.7),inset 0 0 60px rgba(0,0,0,.45)}50%{box-shadow:0 0 130px rgba(79,125,243,.95),inset 0 0 70px rgba(0,0,0,.5)}}
+.shard{position:absolute;top:50%;left:50%;width:90px;height:90px;background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);border-radius:14px}
+.shard.s1{transform:translate(-50%,-50%) translate3d(220px,-160px,80px) rotate(15deg)}
+.shard.s2{transform:translate(-50%,-50%) translate3d(-200px,140px,-40px) rotate(-12deg);width:120px;height:80px}
+.shard.s3{transform:translate(-50%,-50%) translate3d(180px,180px,40px) rotate(28deg);width:70px;height:70px;background:linear-gradient(135deg,rgba(79,125,243,.4),rgba(79,125,243,.05))}
+.shard.s4{transform:translate(-50%,-50%) translate3d(-240px,-60px,60px) rotate(-22deg);width:100px;height:60px}
+
+/* Marquee */
+.marquee{padding:30px 0;border-top:1px solid var(--white-line);border-bottom:1px solid var(--white-line);overflow:hidden;background:rgba(255,255,255,.015)}
+.marquee-track{display:flex;gap:80px;animation:scroll 30s linear infinite;white-space:nowrap}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.marquee-item{font-family:'Space Grotesk';font-size:22px;color:var(--white-soft);letter-spacing:-.01em;display:inline-flex;align-items:center;gap:24px}
+.marquee-item::after{content:"✦";color:var(--blue);font-size:14px;margin-left:24px}
+
+/* Section heads */
+.sect-head{display:flex;justify-content:space-between;align-items:flex-end;gap:60px;margin-bottom:70px;flex-wrap:wrap}
+.sect-head .left{max-width:680px}
+.sect-head h2{margin-top:18px}
+.sect-head .right{max-width:380px}
+
+/* Services grid */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.svc-card{padding:30px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer}
+.svc-card .icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,rgba(79,125,243,.2),rgba(79,125,243,.05));border:1px solid rgba(79,125,243,.3);display:grid;place-items:center;color:var(--blue);margin-bottom:24px}
+.svc-card .icon svg{width:24px;height:24px}
+.svc-card h3{margin-bottom:10px}
+.svc-card p{font-size:14.5px}
+.svc-card .arrow{margin-top:24px;display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+/* Pricing */
+.price-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.price-card{padding:30px;display:flex;flex-direction:column;gap:18px;min-height:560px;cursor:pointer;position:relative}
+.price-card.featured{border-color:rgba(79,125,243,.5);background:linear-gradient(180deg,rgba(79,125,243,.1),rgba(79,125,243,.02))}
+.price-badge{position:absolute;top:-12px;right:22px;padding:6px 14px;border-radius:999px;background:var(--blue);color:#fff;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.price-card .plan-name{font-family:'Space Grotesk';font-size:18px;font-weight:500;color:var(--white)}
+.price-card .price{font-family:'Space Grotesk';font-size:42px;font-weight:500;letter-spacing:-.03em;color:var(--white);line-height:1}
+.price-card .price small{font-size:13px;color:var(--white-soft);font-weight:400;display:block;margin-top:6px;letter-spacing:0}
+.price-card .best-for{font-size:13px;color:var(--white-soft);text-transform:uppercase;letter-spacing:.1em}
+.price-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.price-card ul li{font-size:14px;color:var(--white-dim);display:flex;gap:10px;align-items:flex-start;line-height:1.4}
+.price-card ul li::before{content:"";flex-shrink:0;width:16px;height:16px;border-radius:50%;background:rgba(79,125,243,.18);border:1px solid rgba(79,125,243,.45);margin-top:3px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F7DF3' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>");background-size:10px;background-repeat:no-repeat;background-position:center}
+.price-card .delivery{font-size:13px;color:var(--white-soft);padding:10px 0;border-top:1px dashed var(--white-line);border-bottom:1px dashed var(--white-line);display:flex;justify-content:space-between;margin-top:auto}
+.price-card .delivery b{color:var(--white);font-weight:500}
+.price-card .btn{justify-content:center;width:100%}
+
+/* Maintenance */
+.maint-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.maint-card{padding:34px;display:flex;flex-direction:column;gap:18px}
+.maint-card .price{font-family:'Space Grotesk';font-size:38px;color:var(--white);font-weight:500;letter-spacing:-.03em}
+.maint-card .price small{font-size:14px;color:var(--white-soft);font-weight:400}
+.maint-card .yearly{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(91,228,163,.1);border:1px solid rgba(91,228,163,.3);color:var(--green);font-size:12px;font-weight:600;width:fit-content;letter-spacing:.04em}
+.maint-card ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.maint-card ul li{font-size:14.5px;color:var(--white-dim);display:flex;gap:10px;align-items:flex-start}
+.maint-card ul li::before{content:"→";color:var(--blue);font-weight:700}
+
+/* Portfolio */
+.port-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.port-item{grid-column:span 3;aspect-ratio:16/11;border-radius:var(--radius-lg);overflow:hidden;position:relative;cursor:pointer;border:1px solid var(--white-line);background:var(--black-2)}
+.port-item.tall{grid-column:span 2;aspect-ratio:3/4}
+.port-item.wide{grid-column:span 4;aspect-ratio:16/9}
+.port-thumb{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .8s var(--ease)}
+.port-item:hover .port-thumb{transform:scale(1.06)}
+.port-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,10,11,.92));display:flex;flex-direction:column;justify-content:flex-end;padding:28px;transition:background .4s}
+.port-overlay .tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.port-overlay h3{margin-top:6px;color:var(--white)}
+.port-overlay p{font-size:14px;margin-top:6px;max-width:80%}
+.port-arrow{position:absolute;top:22px;right:22px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);backdrop-filter:blur(8px);display:grid;place-items:center;border:1px solid var(--white-line);transition:background .3s,transform .3s}
+.port-item:hover .port-arrow{background:var(--blue);transform:rotate(-45deg)}
+
+/* Process */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{padding:30px;border:1px solid var(--white-line);border-radius:var(--radius);position:relative;background:var(--glass)}
+.step .num{font-family:'Space Grotesk';font-size:64px;font-weight:300;color:var(--blue);opacity:.4;line-height:1}
+.step h3{margin:18px 0 10px;font-size:22px}
+.step p{font-size:14.5px}
+
+/* Testimonials */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.test-card{padding:36px;border-radius:var(--radius-lg);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--glass-border);display:flex;flex-direction:column;gap:24px}
+.test-card .quote{font-family:'Space Grotesk';font-size:19px;line-height:1.5;color:var(--white);letter-spacing:-.01em}
+.test-author{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:20px;border-top:1px solid var(--white-line)}
+.avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#4F7DF3,#1a3aa8);display:grid;place-items:center;font-family:'Space Grotesk';font-weight:600;color:#fff}
+.test-author .who strong{display:block;font-family:'Space Grotesk';font-weight:500;color:var(--white);font-size:15px}
+.test-author .who span{font-size:13px;color:var(--white-soft)}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:0;max-width:920px;margin:0 auto;border-top:1px solid var(--white-line)}
+.faq-item{border-bottom:1px solid var(--white-line);padding:28px 0;cursor:pointer}
+.faq-item h3{display:flex;justify-content:space-between;align-items:center;font-size:20px;font-weight:500;color:var(--white)}
+.faq-item h3 .ic{width:36px;height:36px;border-radius:50%;border:1px solid var(--white-faint);display:grid;place-items:center;transition:transform .4s var(--ease),background .3s,border-color .3s}
+.faq-item.open h3 .ic{transform:rotate(45deg);background:var(--blue);border-color:var(--blue)}
+.faq-item p{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s var(--ease),opacity .4s,margin .4s;font-size:15.5px;line-height:1.6}
+.faq-item.open p{max-height:300px;opacity:1;margin-top:14px}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:32px}
+.info-card{padding:28px;border-radius:var(--radius);border:1px solid var(--white-line);background:var(--glass);display:flex;gap:18px;align-items:flex-start}
+.info-card .ic{width:46px;height:46px;border-radius:12px;background:rgba(79,125,243,.15);color:var(--blue);display:grid;place-items:center;flex-shrink:0}
+.info-card h4{margin-bottom:4px;font-size:16px;color:var(--white)}
+.info-card p{font-size:14.5px}
+.form{padding:38px;border-radius:var(--radius-lg);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--glass-border);display:flex;flex-direction:column;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:12px;color:var(--white-soft);text-transform:uppercase;letter-spacing:.12em;font-weight:500}
+.field input,.field textarea,.field select{background:rgba(0,0,0,.4);border:1px solid var(--white-line);border-radius:12px;padding:14px 16px;font-size:15px;color:var(--white);transition:border-color .3s,background .3s;outline:none;width:100%}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--blue);background:rgba(79,125,243,.06)}
+.field textarea{min-height:120px;resize:vertical;font-family:inherit}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* Detail pages */
+.detail-hero{padding-top:calc(var(--nav-h) + 80px);padding-bottom:80px;border-bottom:1px solid var(--white-line)}
+.breadcrumbs{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--white-soft);margin-bottom:32px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.breadcrumbs a{color:var(--white-soft);transition:color .3s}
+.breadcrumbs a:hover{color:var(--white)}
+.breadcrumbs .sep{opacity:.4}
+.detail-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;border-top:1px solid var(--white-line);border-bottom:1px solid var(--white-line)}
+.detail-meta div{padding:22px 18px;border-right:1px solid var(--white-line)}
+.detail-meta div:last-child{border-right:0}
+.detail-meta strong{display:block;font-family:'Space Grotesk';font-size:22px;font-weight:500;color:var(--white)}
+.detail-meta span{font-size:12px;color:var(--white-soft);letter-spacing:.12em;text-transform:uppercase}
+
+.detail-body{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start;margin-top:80px}
+.detail-body h2{margin-bottom:20px}
+.detail-body p{font-size:16.5px;line-height:1.7;margin-bottom:18px}
+.detail-side{position:sticky;top:120px;padding:32px;border:1px solid var(--white-line);border-radius:var(--radius-lg);background:var(--glass)}
+.detail-side h4{margin-bottom:20px;color:var(--white)}
+.detail-side ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.detail-side ul li{display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--white-line);font-size:14px;color:var(--white-dim)}
+.detail-side ul li b{color:var(--white);font-weight:500}
+.detail-side .btn{width:100%;justify-content:center;margin-top:24px}
+
+.feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0}
+.feature-list .f{padding:18px;border-radius:14px;border:1px solid var(--white-line);background:var(--glass);display:flex;gap:12px;align-items:flex-start}
+.feature-list .f .ic{width:32px;height:32px;border-radius:10px;background:rgba(79,125,243,.15);color:var(--blue);display:grid;place-items:center;flex-shrink:0}
+.feature-list .f .ic svg{width:16px;height:16px}
+.feature-list .f h4{font-size:15px;margin-bottom:4px;color:var(--white)}
+.feature-list .f p{font-size:13.5px;margin:0;line-height:1.5}
+
+/* T&C */
+.terms-list{counter-reset:tc;display:flex;flex-direction:column;gap:18px;max-width:880px;margin:0 auto}
+.terms-list .item{counter-increment:tc;padding:26px 28px 26px 80px;border-radius:var(--radius);border:1px solid var(--white-line);background:var(--glass);position:relative;font-size:15.5px;color:var(--white-dim);line-height:1.6}
+.terms-list .item::before{content:counter(tc,decimal-leading-zero);position:absolute;top:24px;left:24px;font-family:'Space Grotesk';font-size:16px;color:var(--blue);font-weight:600;letter-spacing:.04em}
+
+/* Footer */
+.footer{padding:80px 0 40px;border-top:1px solid var(--white-line);position:relative;z-index:2}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-top h4{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--white-soft);margin-bottom:22px;font-weight:500}
+.footer-top ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-top ul a{font-size:15px;color:var(--white-dim);transition:color .25s}
+.footer-top ul a:hover{color:var(--white)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;border-top:1px solid var(--white-line);font-size:13px;color:var(--white-soft);flex-wrap:wrap;gap:14px}
+.footer-cta{font-family:'Space Grotesk';font-size:clamp(34px,5vw,68px);font-weight:500;letter-spacing:-.03em;line-height:1.05;margin-bottom:40px;max-width:900px}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.reveal.in{opacity:1;transform:none}
+.reveal-stagger>*{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.reveal-stagger.in>*{opacity:1;transform:none}
+.reveal-stagger.in>*:nth-child(1){transition-delay:.05s}
+.reveal-stagger.in>*:nth-child(2){transition-delay:.12s}
+.reveal-stagger.in>*:nth-child(3){transition-delay:.19s}
+.reveal-stagger.in>*:nth-child(4){transition-delay:.26s}
+.reveal-stagger.in>*:nth-child(5){transition-delay:.33s}
+.reveal-stagger.in>*:nth-child(6){transition-delay:.4s}
+.reveal-stagger.in>*:nth-child(7){transition-delay:.47s}
+.reveal-stagger.in>*:nth-child(8){transition-delay:.54s}
+
+/* Big number CTA */
+.big-cta{padding:120px 0;text-align:center;border-top:1px solid var(--white-line);border-bottom:1px solid var(--white-line);background:radial-gradient(ellipse at center,rgba(79,125,243,.1),transparent 70%)}
+
+/* Trust strip */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--white-line);border-radius:var(--radius-lg);overflow:hidden;background:var(--glass)}
+.trust div{padding:28px;border-right:1px solid var(--white-line);display:flex;flex-direction:column;gap:6px}
+.trust div:last-child{border-right:0}
+.trust strong{font-family:'Space Grotesk';font-size:30px;color:var(--white);font-weight:500;letter-spacing:-.03em}
+.trust span{font-size:13px;color:var(--white-soft);letter-spacing:.08em;text-transform:uppercase}
+
+/* Responsive */
+@media (max-width:1100px){
+  .price-grid{grid-template-columns:repeat(3,1fr)}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{height:420px}
+  .detail-body{grid-template-columns:1fr;gap:40px}
+  .detail-side{position:static}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+  .process{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:780px){
+  section{padding:90px 0}
+  .nav-links{display:none}
+  .menu-btn{display:flex}
+  .price-grid,.maint-grid,.test-grid,.svc-grid{grid-template-columns:1fr}
+  .port-grid{grid-template-columns:1fr}
+  .port-item,.port-item.tall,.port-item.wide{grid-column:span 1;aspect-ratio:4/3}
+  .hero-meta,.detail-meta,.trust{grid-template-columns:repeat(2,1fr)}
+  .hero-meta div,.detail-meta div,.trust div{border-right:0;border-bottom:1px solid var(--white-line)}
+  .feature-list,.form-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr}
+  .nav-cta{display:none}
+  .sect-head{margin-bottom:40px}
+}
+
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor"></div>
+<div class="cursor-dot"></div>
+
+<!-- Background ambience -->
+<div class="bg-fx">
+  <div class="bg-grid"></div>
+  <div class="bg-orb a"></div>
+  <div class="bg-orb b"></div>
+  <div class="bg-noise"></div>
+  <div class="bg-vignette"></div>
+</div>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-mark"></div>
+  <div class="loader-text">Axiom — Crafting Premium Web</div>
+</div>
+
+<!-- Page transition -->
+<div class="page-trans" id="pageTrans">
+  <div class="panel"></div><div class="panel"></div><div class="panel"></div><div class="panel"></div><div class="panel"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#/" class="brand" data-link>
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M3 18 L12 4 L21 18"/><path d="M7 14 H17"/></svg>
+      </div>
+      AXIOM
+    </a>
+    <div class="nav-links">
+      <a href="#/" data-link>Home</a>
+      <a href="#/services" data-link>Services</a>
+      <a href="#/pricing" data-link>Pricing</a>
+      <a href="#/portfolio" data-link>Work</a>
+      <a href="#/process" data-link>Process</a>
+      <a href="#/about" data-link>About</a>
+      <a href="#/contact" data-link>Contact</a>
+    </div>
+    <a href="#/contact" class="nav-cta" data-link>Start a Project
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="menu-btn" id="menuBtn"><span></span></button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#/" data-link>Home</a>
+  <a href="#/services" data-link>Services</a>
+  <a href="#/pricing" data-link>Pricing</a>
+  <a href="#/portfolio" data-link>Work</a>
+  <a href="#/process" data-link>Process</a>
+  <a href="#/about" data-link>About</a>
+  <a href="#/maintenance" data-link>Maintenance</a>
+  <a href="#/faq" data-link>FAQ</a>
+  <a href="#/terms" data-link>Terms</a>
+  <a href="#/contact" data-link>Contact</a>
+</div>
+
+<main id="app">
+
+<!-- ============================ HOME ============================ -->
+<section class="page active" data-page="home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow reveal in">Premium Web Design & Development Studio</span>
+          <h1 class="gradient-text" style="margin-top:24px">
+            <span class="line"><i>Websites that</i></span>
+            <span class="line"><i>elevate brands</i></span>
+            <span class="line"><i>into <span class="blue-text">icons</span>.</i></span>
+          </h1>
+          <p class="lead">AXIOM is a premium digital agency engineering high-converting, cinematic websites for ambitious brands — from boutique businesses to enterprise SaaS. Luxury design, advanced 3D, enterprise architecture.</p>
+          <div class="hero-cta-row">
+            <a href="#/pricing" class="btn btn-primary" data-link>View Pricing
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#/portfolio" class="btn btn-ghost" data-link>See Our Work
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual" id="heroVis">
+          <div class="scene" id="heroScene">
+            <div class="ring r1"></div>
+            <div class="ring r2"></div>
+            <div class="ring r3"></div>
+            <div class="core"></div>
+            <div class="shard s1"></div>
+            <div class="shard s2"></div>
+            <div class="shard s3"></div>
+            <div class="shard s4"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-meta">
+        <div><strong>180+</strong><span>Websites Shipped</span></div>
+        <div><strong>50+</strong><span>Brand Clients</span></div>
+        <div><strong>99.9%</strong><span>Uptime SLA</span></div>
+        <div><strong>4.9/5</strong><span>Client Rating</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="marquee-item">Business Websites</div>
+      <div class="marquee-item">Portfolio Sites</div>
+      <div class="marquee-item">Landing Pages</div>
+      <div class="marquee-item">E-Commerce</div>
+      <div class="marquee-item">Website Redesign</div>
+      <div class="marquee-item">Maintenance</div>
+      <div class="marquee-item">Optimization</div>
+      <div class="marquee-item">Custom Web Solutions</div>
+      <div class="marquee-item">Business Websites</div>
+      <div class="marquee-item">Portfolio Sites</div>
+      <div class="marquee-item">Landing Pages</div>
+      <div class="marquee-item">E-Commerce</div>
+      <div class="marquee-item">Website Redesign</div>
+      <div class="marquee-item">Maintenance</div>
+      <div class="marquee-item">Optimization</div>
+      <div class="marquee-item">Custom Web Solutions</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section>
+    <div class="container">
+      <div class="sect-head reveal">
+        <div class="left">
+          <span class="eyebrow">What We Build</span>
+          <h2 class="gradient-text">Eight services. <br/>One uncompromising standard.</h2>
+        </div>
+        <div class="right">
+          <p>Every engagement is treated as a flagship product. Strategy, design, motion, and engineering — delivered as a single seamless experience.</p>
+        </div>
+      </div>
+      <div class="svc-grid reveal-stagger" id="svcGrid"></div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="tight">
+    <div class="container">
+      <div class="trust reveal">
+        <div><strong>5–45</strong><span>Days Delivery</span></div>
+        <div><strong>3 Rounds</strong><span>Of Revisions</span></div>
+        <div><strong>30–40%</strong><span>Booking To Start</span></div>
+        <div><strong>100%</strong><span>Ownership Transferred</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING (compact preview) -->
+  <section>
+    <div class="container">
+      <div class="sect-head reveal">
+        <div class="left">
+          <span class="eyebrow">Transparent Pricing</span>
+          <h2 class="gradient-text">Five plans. <br/>Built for every stage.</h2>
+        </div>
+        <div class="right">
+          <p>From your first storefront to a custom enterprise platform. Every plan ships with luxury design, mobile responsiveness, and dedicated project management.</p>
+        </div>
+      </div>
+      <div class="price-grid reveal-stagger" id="priceGridHome"></div>
+    </div>
+  </section>
+
+  <!-- PROCESS PREVIEW -->
+  <section>
+    <div class="container">
+      <div class="sect-head reveal">
+        <div class="left">
+          <span class="eyebrow">Our Process</span>
+          <h2 class="gradient-text">From vision <br/>to live website.</h2>
+        </div>
+        <div class="right">
+          <p>A proven 4-stage system used on 180+ projects — disciplined, transparent, and obsessed with quality at every milestone.</p>
+        </div>
+      </div>
+      <div class="process reveal-stagger">
+        <div class="step"><div class="num">01</div><h3>Discovery</h3><p>Brand, audience, goals, competitive audit and a clear scope you sign off on.</p></div>
+        <div class="step"><div class="num">02</div><h3>Design</h3><p>Wireframes, moodboards, then luxury UI in Figma — refined across two design rounds.</p></div>
+        <div class="step"><div class="num">03</div><h3>Build</h3><p>Pixel-perfect, fast, accessible development with animations, CMS, and integrations.</p></div>
+        <div class="step"><div class="num">04</div><h3>Launch</h3><p>QA, SEO setup, performance tuning, handover, and post-launch care.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO PREVIEW -->
+  <section>
+    <div class="container">
+      <div class="sect-head reveal">
+        <div class="left">
+          <span class="eyebrow">Selected Work</span>
+          <h2 class="gradient-text">Brands we've taken <br/>to the next level.</h2>
+        </div>
+        <div class="right">
+          <p>A curated selection of luxury brands, ambitious startups, and enterprise platforms we've designed and engineered end-to-end.</p>
+        </div>
+      </div>
+      <div class="port-grid reveal-stagger" id="portGridHome"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <div class="sect-head reveal">
+        <div class="left">
+          <span class="eyebrow">Trusted Voices</span>
+          <h2 class="gradient-text">What our clients say.</h2>
+        </div>
+      </div>
+      <div class="test-grid reveal-stagger">
+        <div class="test-card">
+          <p class="quote">"AXIOM delivered a website that genuinely feels like a luxury product. Our conversion rate doubled in the first month."</p>
+          <div class="test-author"><div class="avatar">RS</div><div class="who"><strong>Rohan Sharma</strong><span>CEO, Lumen Studios</span></div></div>
+        </div>
+        <div class="test-card">
+          <p class="quote">"The level of design polish and engineering quality is on par with the top studios in San Francisco — at a fraction of the cost."</p>
+          <div class="test-author"><div class="avatar">AK</div><div class="who"><strong>Ananya Kapoor</strong><span>Founder, Vela Fashion</span></div></div>
+        </div>
+        <div class="test-card">
+          <p class="quote">"Booking was simple, delivery was on time, and the post-launch support has been world class. Highly recommended."</p>
+          <div class="test-author"><div class="avatar">VM</div><div class="who"><strong>Vikram Mehta</strong><span>CTO, Northwind AI</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG CTA -->
+  <section class="big-cta">
+    <div class="container-sm reveal">
+      <span class="eyebrow" style="justify-content:center">Let's Build Something Iconic</span>
+      <h2 class="gradient-text" style="margin:24px 0 28px">Ready to launch a website worth talking about?</h2>
+      <p class="lead" style="margin:0 auto 36px">Book a discovery call — we'll map out the strategy, design direction, and a delivery timeline tailored to your business.</p>
+      <a href="#/contact" class="btn btn-blue" data-link>Start Your Project
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+</section>
+
+<!-- ============================ SERVICES ============================ -->
+<section class="page" data-page="services">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><span>Services</span></div>
+      <span class="eyebrow">All Services</span>
+      <h1 class="gradient-text" style="margin-top:20px;font-size:clamp(40px,6vw,84px)">Eight services.<br/>Every one delivered like a flagship.</h1>
+      <p class="lead" style="margin-top:24px">From a one-page landing site to a full custom enterprise platform — explore each service and discover what's included.</p>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="svc-grid reveal-stagger" id="svcGridFull"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ SERVICE DETAIL ============================ -->
+<section class="page" data-page="service-detail">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><a href="#/services" data-link>Services</a><span class="sep">/</span><span id="svcCrumb"></span></div>
+      <span class="eyebrow" id="svcEyebrow">Service</span>
+      <h1 class="gradient-text" id="svcTitle" style="margin-top:20px;font-size:clamp(40px,6vw,84px)"></h1>
+      <p class="lead" id="svcLead" style="margin-top:24px"></p>
+      <div class="detail-meta">
+        <div><strong id="svcStart">—</strong><span>Starting At</span></div>
+        <div><strong id="svcTime">—</strong><span>Delivery Time</span></div>
+        <div><strong id="svcRev">3 Rounds</strong><span>Revisions</span></div>
+        <div><strong>30–40%</strong><span>Booking</span></div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="detail-body">
+        <aside class="detail-side">
+          <h4>Quick Facts</h4>
+          <ul id="svcFacts"></ul>
+          <a href="#/contact" class="btn btn-blue" data-link>Request a Quote
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </aside>
+        <div>
+          <h2 class="gradient-text">What's included</h2>
+          <p id="svcDesc"></p>
+          <div class="feature-list" id="svcFeatures"></div>
+          <h2 class="gradient-text" style="margin-top:50px">Our approach</h2>
+          <p id="svcApproach"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ PRICING ============================ -->
+<section class="page" data-page="pricing">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><span>Pricing</span></div>
+      <span class="eyebrow">Transparent Pricing</span>
+      <h1 class="gradient-text" style="margin-top:20px;font-size:clamp(40px,6vw,84px)">Five plans, <br/>zero hidden fees.</h1>
+      <p class="lead" style="margin-top:24px">Every plan is delivered with luxury design quality, fast performance, and a clean handover. Booking secures your delivery slot — balance due on launch.</p>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="price-grid reveal-stagger" id="priceGridFull"></div>
+    </div>
+  </section>
+  <section class="tight">
+    <div class="container">
+      <div class="sect-head reveal">
+        <div class="left">
+          <span class="eyebrow">Maintenance Plans</span>
+          <h2 class="gradient-text">Keep your website <br/>flawless, every month.</h2>
+        </div>
+        <div class="right">
+          <p>Choose ongoing care that fits your workflow. Annual plans include up to two months free.</p>
+        </div>
+      </div>
+      <div class="maint-grid reveal-stagger" id="maintGrid"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ PLAN DETAIL ============================ -->
+<section class="page" data-page="plan-detail">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><a href="#/pricing" data-link>Pricing</a><span class="sep">/</span><span id="planCrumb"></span></div>
+      <span class="eyebrow" id="planEyebrow">Plan</span>
+      <h1 class="gradient-text" id="planTitle" style="margin-top:20px;font-size:clamp(40px,6vw,84px)"></h1>
+      <p class="lead" id="planLead" style="margin-top:24px"></p>
+      <div class="detail-meta">
+        <div><strong id="planPrice">—</strong><span>Total Investment</span></div>
+        <div><strong id="planBooking">—</strong><span>Booking Amount</span></div>
+        <div><strong id="planTime">—</strong><span>Delivery Time</span></div>
+        <div><strong>3 Rounds</strong><span>Revisions</span></div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="detail-body">
+        <aside class="detail-side">
+          <h4>Best For</h4>
+          <ul id="planBestFor"></ul>
+          <a href="#/contact" class="btn btn-blue" data-link>Book This Plan
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </aside>
+        <div>
+          <h2 class="gradient-text">Everything included</h2>
+          <p id="planDesc"></p>
+          <div class="feature-list" id="planFeatures"></div>
+          <h2 class="gradient-text" style="margin-top:50px">What happens after you book</h2>
+          <p>Once your booking amount is received, our team locks your delivery slot and begins a structured kickoff. You'll receive a project brief, asset checklist, and weekly progress updates. The remaining balance is due on launch, and full ownership transfers to you the moment final payment is settled.</p>
+          <p style="margin-top:20px">Need something more tailored? We can extend any plan with additional pages, integrations, custom animations, or a dedicated content strategy phase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ PORTFOLIO ============================ -->
+<section class="page" data-page="portfolio">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><span>Work</span></div>
+      <span class="eyebrow">Selected Work</span>
+      <h1 class="gradient-text" style="margin-top:20px;font-size:clamp(40px,6vw,84px)">A portfolio of <br/>quietly remarkable websites.</h1>
+      <p class="lead" style="margin-top:24px">From luxury fashion houses to AI startups — every project is shipped with the same uncompromising attention to detail.</p>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="port-grid reveal-stagger" id="portGridFull"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ CASE STUDY ============================ -->
+<section class="page" data-page="case">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><a href="#/portfolio" data-link>Work</a><span class="sep">/</span><span id="caseCrumb"></span></div>
+      <span class="eyebrow" id="caseTag">Case Study</span>
+      <h1 class="gradient-text" id="caseTitle" style="margin-top:20px;font-size:clamp(40px,6vw,84px)"></h1>
+      <p class="lead" id="caseLead" style="margin-top:24px"></p>
+      <div class="detail-meta">
+        <div><strong id="caseClient">—</strong><span>Client</span></div>
+        <div><strong id="caseScope">—</strong><span>Scope</span></div>
+        <div><strong id="caseYear">2025</strong><span>Year</span></div>
+        <div><strong id="caseResult">—</strong><span>Outcome</span></div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div id="caseHero" style="aspect-ratio:16/8;border-radius:var(--radius-lg);background-size:cover;background-position:center;border:1px solid var(--white-line)"></div>
+      <div class="detail-body" style="margin-top:60px">
+        <aside class="detail-side">
+          <h4>Project Details</h4>
+          <ul id="caseFacts"></ul>
+          <a href="#/portfolio" class="btn btn-ghost" data-link>← Back to Work</a>
+        </aside>
+        <div>
+          <h2 class="gradient-text">The Brief</h2>
+          <p id="caseBrief"></p>
+          <h2 class="gradient-text" style="margin-top:40px">The Solution</h2>
+          <p id="caseSolution"></p>
+          <h2 class="gradient-text" style="margin-top:40px">The Outcome</h2>
+          <p id="caseOutcome"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="page" data-page="about">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><span>About</span></div>
+      <span class="eyebrow">About AXIOM</span>
+      <h1 class="gradient-text" style="margin-top:20px;font-size:clamp(40px,6vw,84px)">A small studio. <br/>Outsized ambition.</h1>
+      <p class="lead" style="margin-top:24px">AXIOM is a premium website design and development studio building cinematic digital experiences for brands that refuse to look ordinary.</p>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="detail-body">
+        <aside class="detail-side">
+          <h4>Studio Snapshot</h4>
+          <ul>
+            <li>Founded<b>2022</b></li>
+            <li>Team<b>12 Specialists</b></li>
+            <li>Projects<b>180+ Shipped</b></li>
+            <li>Clients<b>14 Countries</b></li>
+            <li>Avg. Rating<b>4.9 / 5</b></li>
+          </ul>
+          <a href="#/contact" class="btn btn-blue" data-link>Work With Us
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </aside>
+        <div>
+          <h2 class="gradient-text">Our story</h2>
+          <p>AXIOM was founded on a simple belief: a website should feel as considered as the brand it represents. We started as a small team of designers and engineers obsessed with the craft — and grew into a studio trusted by ambitious founders, established brands, and venture-backed startups across the world.</p>
+          <p>Today we build for boutique businesses, luxury fashion houses, restaurants, clinics, gyms, AI startups, and enterprise SaaS — but the standard never changes. Every project is treated as a flagship.</p>
+          <h2 class="gradient-text" style="margin-top:40px">What we value</h2>
+          <div class="feature-list">
+            <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L15 9 L22 9 L17 14 L19 22 L12 18 L5 22 L7 14 L2 9 L9 9 Z"/></svg></div><div><h4>Craft First</h4><p>Pixel-perfect design backed by clean, maintainable code.</p></div></div>
+            <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7 V12 L16 14"/></svg></div><div><h4>On Time, Every Time</h4><p>Disciplined timelines, weekly milestones, no surprises.</p></div></div>
+            <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 L10 17 L19 7"/></svg></div><div><h4>Transparency</h4><p>Clear pricing, clear scope, clear ownership — always.</p></div></div>
+            <div class="f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 H21 M12 3 V21"/></svg></div><div><h4>Built to Scale</h4><p>Architecture that grows with your business, not against it.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ PROCESS ============================ -->
+<section class="page" data-page="process">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><span>Process</span></div>
+      <span class="eyebrow">How We Work</span>
+      <h1 class="gradient-text" style="margin-top:20px;font-size:clamp(40px,6vw,84px)">A disciplined process. <br/>A predictable outcome.</h1>
+      <p class="lead" style="margin-top:24px">Our four-stage system has shipped 180+ websites without missing a deadline. Every stage has clear deliverables, sign-offs, and timelines.</p>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="process reveal-stagger">
+        <div class="step"><div class="num">01</div><h3>Discovery</h3><p>Brand workshop, audience research, competitive audit, and a fully scoped proposal. You sign off before anything begins.</p></div>
+        <div class="step"><div class="num">02</div><h3>Design</h3><p>Information architecture, wireframes, then luxury UI in Figma — refined over two structured design rounds.</p></div>
+        <div class="step"><div class="num">03</div><h3>Build</h3><p>Pixel-perfect, accessible, fast development with animations, CMS integration, and all third-party services.</p></div>
+        <div class="step"><div class="num">04</div><h3>Launch</h3><p>QA, performance tuning, SEO setup, analytics, documentation, full handover and optional ongoing care.</p></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ MAINTENANCE ============================ -->
+<section class="page" data-page="maintenance">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><span>Maintenance</span></div>
+      <span class="eyebrow">Maintenance Plans</span>
+      <h1 class="gradient-text" style="margin-top:20px;font-size:clamp(40px,6vw,84px)">Your website, <br/>professionally cared for.</h1>
+      <p class="lead" style="margin-top:24px">Choose monthly or annual maintenance. Annual plans include up to two months free.</p>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="maint-grid reveal-stagger" id="maintGridFull"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="page" data-page="faq">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><span>FAQ</span></div>
+      <span class="eyebrow">Frequently Asked</span>
+      <h1 class="gradient-text" style="margin-top:20px;font-size:clamp(40px,6vw,84px)">Answers to <br/>the important questions.</h1>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="faq reveal" id="faqList"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ TERMS ============================ -->
+<section class="page" data-page="terms">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><span>Terms & Conditions</span></div>
+      <span class="eyebrow">Legal</span>
+      <h1 class="gradient-text" style="margin-top:20px;font-size:clamp(40px,6vw,84px)">Terms & Conditions</h1>
+      <p class="lead" style="margin-top:24px">These terms govern every engagement with AXIOM. By booking any plan or service, you agree to the following.</p>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="terms-list reveal" id="termsList"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="page" data-page="contact">
+  <div class="detail-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/" data-link>Home</a><span class="sep">/</span><span>Contact</span></div>
+      <span class="eyebrow">Start a Project</span>
+      <h1 class="gradient-text" style="margin-top:20px;font-size:clamp(40px,6vw,84px)">Let's build <br/>something iconic.</h1>
+      <p class="lead" style="margin-top:24px">Tell us about your project — we'll reply within one business day with next steps, a timeline, and a tailored proposal.</p>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6 L12 13 L20 6 M4 6 H20 V18 H4 Z"/></svg></div>
+            <div><h4>Email</h4><p>hello@axiom.studio<br/>projects@axiom.studio</p></div>
+          </div>
+          <div class="info-card">
+            <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4 H9 L11 9 L8.5 10.5 A11 11 0 0 0 13.5 15.5 L15 13 L20 15 V19 A2 2 0 0 1 18 21 A16 16 0 0 1 3 6 A2 2 0 0 1 5 4 Z"/></svg></div>
+            <div><h4>Phone / WhatsApp</h4><p>+91 90000 12345<br/>Mon–Sat · 10am – 8pm IST</p></div>
+          </div>
+          <div class="info-card">
+            <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 C8 2 5 5 5 9 C5 14 12 22 12 22 C12 22 19 14 19 9 C19 5 16 2 12 2 Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+            <div><h4>Studio</h4><p>Indiranagar, Bengaluru<br/>India · 560038</p></div>
+          </div>
+          <div class="info-card">
+            <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12 H21 M12 3 C15 6 15 18 12 21 C9 18 9 6 12 3"/></svg></div>
+            <div><h4>Worldwide</h4><p>Serving clients across <br/>14 countries.</p></div>
+          </div>
+        </div>
+        <form class="form" onsubmit="event.preventDefault();alert('Thanks — we will get back to you within 1 business day.');this.reset();">
+          <div class="field"><label>Your Name</label><input required placeholder="Jane Doe" /></div>
+          <div class="form-row">
+            <div class="field"><label>Email</label><input type="email" required placeholder="you@brand.com" /></div>
+            <div class="field"><label>Phone</label><input placeholder="+91" /></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Project Type</label>
+              <select>
+                <option>Business Website</option><option>Portfolio</option><option>Landing Page</option>
+                <option>E-Commerce</option><option>Redesign</option><option>Maintenance</option>
+                <option>Optimization</option><option>Custom Solution</option>
+              </select>
+            </div>
+            <div class="field"><label>Budget</label>
+              <select>
+                <option>₹9,999 – ₹19,999</option><option>₹19,999 – ₹34,999</option>
+                <option>₹34,999 – ₹59,999</option><option>₹59,999 – ₹99,999</option><option>₹1,00,000+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label>Tell us about your project</label><textarea required placeholder="A few sentences about your brand, goals, and timeline..."></textarea></div>
+          <button class="btn btn-blue" style="justify-content:center">Send Inquiry
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p style="font-size:12px;color:var(--white-soft);text-align:center;margin-top:8px">By submitting you agree to our <a href="#/terms" data-link class="blue-text">terms</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-cta gradient-text">Let's launch a website your competitors will study for years.</div>
+    <a href="#/contact" class="btn btn-primary" data-link style="margin-bottom:80px">Start a Project
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <div class="footer-top">
+      <div>
+        <a href="#/" class="brand" data-link>
+          <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M3 18 L12 4 L21 18"/><path d="M7 14 H17"/></svg></div>
+          AXIOM
+        </a>
+        <p style="margin-top:18px;max-width:340px;font-size:14.5px">Premium website design & development for ambitious brands. Headquartered in Bengaluru. Serving the world.</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#/about" data-link>About</a></li>
+          <li><a href="#/process" data-link>Process</a></li>
+          <li><a href="#/portfolio" data-link>Work</a></li>
+          <li><a href="#/contact" data-link>Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#/service/business" data-link>Business Websites</a></li>
+          <li><a href="#/service/ecommerce" data-link>E-Commerce</a></li>
+          <li><a href="#/service/landing" data-link>Landing Pages</a></li>
+          <li><a href="#/service/redesign" data-link>Redesign</a></li>
+          <li><a href="#/services" data-link>All Services →</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#/pricing" data-link>Pricing</a></li>
+          <li><a href="#/maintenance" data-link>Maintenance</a></li>
+          <li><a href="#/faq" data-link>FAQ</a></li>
+          <li><a href="#/terms" data-link>Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 AXIOM Studio. All rights reserved.</div>
+      <div>Crafted with obsession in Bengaluru · India</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   DATA
+   ========================================================= */
+
+const SERVICES = [
+  {id:'business', name:'Business Websites', tag:'Foundation', start:'₹9,999', time:'5–10 Days',
+    short:'Professional, mobile-first websites that earn trust from the first scroll.',
+    desc:'Your business website is the modern handshake. We design and engineer fast, conversion-focused websites that present your brand with the polish of a top international studio — without the international price tag.',
+    approach:'We start with a brand workshop to extract your voice, audience, and goals. Then we craft a tailored design system, build the site with clean, semantic code, and ship it with full SEO setup and analytics.',
+    features:[
+      {t:'Mobile Responsive',d:'Flawless across every screen size.'},
+      {t:'Fast Loading',d:'Optimized assets, lazy loading, perfect Lighthouse scores.'},
+      {t:'Modern UI',d:'Distinctive, on-brand visual design.'},
+      {t:'Contact Forms',d:'Lead capture with email notifications.'},
+      {t:'Basic SEO',d:'Meta tags, sitemap, schema, performance.'},
+      {t:'Analytics',d:'Google Analytics and Search Console wired in.'}
+    ],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8 H21 M7 12 H12 M7 15 H10"/></svg>'
+  },
+  {id:'portfolio', name:'Portfolio Websites', tag:'Showcase', start:'₹14,999', time:'7–10 Days',
+    short:'Editorial, cinematic portfolios that make your work impossible to ignore.',
+    desc:'For creatives, freelancers, agencies and studios — a portfolio site that elevates your work into a gallery experience with smooth transitions and storytelling.',
+    approach:'Curate the work that matters, design an editorial layout with cinematic motion, and deliver a portfolio you will proudly send to every prospect.',
+    features:[
+      {t:'Project Galleries',d:'Beautifully laid out case studies.'},
+      {t:'Cinematic Motion',d:'Scroll-driven storytelling and transitions.'},
+      {t:'Editorial Layouts',d:'Magazine-style typography and grid.'},
+      {t:'Smooth Filters',d:'Category and tag filtering with animation.'},
+      {t:'Press / About',d:'Bio, awards, press, and contact pages.'},
+      {t:'Social Integration',d:'Instagram, Behance, Dribbble feeds.'}
+    ],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>'
+  },
+  {id:'landing', name:'Landing Pages', tag:'Conversion', start:'₹7,999', time:'3–6 Days',
+    short:'Single-page experiences engineered for one job: convert.',
+    desc:'A focused landing page for a product launch, lead magnet, campaign or app — designed around a single conversion goal and optimized for performance.',
+    approach:'Goal-first design: clear hero, persuasive copy structure, social proof, and a single dominant call to action — measured and iterated.',
+    features:[
+      {t:'Conversion-Focused',d:'Every section earns its place.'},
+      {t:'A/B Ready',d:'Built so variants ship in days, not weeks.'},
+      {t:'Hero Animations',d:'Eye-catching motion that doesn\'t distract.'},
+      {t:'Form Integrations',d:'Connected to your CRM or email tool.'},
+      {t:'Pixel Tracking',d:'Meta, Google, LinkedIn pixels installed.'},
+      {t:'Mobile First',d:'Optimized for paid-traffic mobile users.'}
+    ],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17 L4 19 H20 V17 M12 4 L12 15 M7 9 L12 4 L17 9"/></svg>'
+  },
+  {id:'ecommerce', name:'E-Commerce Websites', tag:'Retail', start:'₹59,999', time:'15–25 Days',
+    short:'High-converting online stores with luxury merchandising and seamless checkout.',
+    desc:'From boutique brands to scale-up retailers — full e-commerce builds on Shopify, WooCommerce, or custom stacks with premium UI and frictionless checkout.',
+    approach:'Audit, IA, product taxonomy, premium PDP design, checkout optimization, payments, shipping, taxes, inventory, and post-purchase flows.',
+    features:[
+      {t:'Product Management',d:'Variants, inventory, collections.'},
+      {t:'Premium PDPs',d:'Story-driven product detail pages.'},
+      {t:'Checkout Optimized',d:'Reduce friction at the highest-intent step.'},
+      {t:'Payment Gateways',d:'Razorpay, Stripe, PayPal, COD.'},
+      {t:'Mobile Optimized',d:'Mobile-first commerce experience.'},
+      {t:'SEO & Schema',d:'Product schema and rich snippets.'}
+    ],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5 H6 L8 17 H19 L21 8 H8 M10 21 a1 1 0 1 0 0-2 a1 1 0 0 0 0 2 M17 21 a1 1 0 1 0 0-2 a1 1 0 0 0 0 2"/></svg>'
+  },
+  {id:'redesign', name:'Website Redesign', tag:'Transformation', start:'₹19,999', time:'10–15 Days',
+    short:'Take your existing site from outdated to industry-leading.',
+    desc:'Full redesign of an existing website — modern design system, new structure, improved performance, and a cleaner conversion path.',
+    approach:'Audit current site, retain what works, replace what doesn\'t. Re-architect, redesign, and rebuild on a faster, more maintainable stack.',
+    features:[
+      {t:'Site Audit',d:'Heuristic, performance, SEO and content review.'},
+      {t:'Brand Refresh',d:'Optional logo, type, and color tuning.'},
+      {t:'New Design System',d:'Reusable components and tokens.'},
+      {t:'Content Migration',d:'Carefully moved with redirects.'},
+      {t:'SEO Preserved',d:'Rankings protected through transition.'},
+      {t:'Performance Boost',d:'2–4× faster load times typical.'}
+    ],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4 V10 H10 M20 20 V14 H14 M4 10 A8 8 0 0 1 18 7 M20 14 A8 8 0 0 1 6 17"/></svg>'
+  },
+  {id:'maintenance', name:'Website Maintenance', tag:'Care', start:'₹1,499/mo', time:'Ongoing',
+    short:'Hands-off care so your website stays fast, secure, and fresh.',
+    desc:'Monthly maintenance plans covering backups, security, edits, updates, performance monitoring and priority support.',
+    approach:'Choose Basic, Growth, or Premium care. We monitor, update, fix, and improve so you can focus on running your business.',
+    features:[
+      {t:'Daily Backups',d:'Off-site backups with quick restore.'},
+      {t:'Security Checks',d:'Vulnerability scans and patching.'},
+      {t:'Content Edits',d:'Small text and image updates included.'},
+      {t:'Speed Monitoring',d:'Performance budgets and alerts.'},
+      {t:'Analytics Review',d:'Monthly insights and recommendations.'},
+      {t:'Priority Support',d:'Direct line to your project lead.'}
+    ],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 7 a4 4 0 1 1-4-4 M14 7 L20 1 M20 7 H14 M14 7 V1 M10 11 L4 17 a2.8 2.8 0 1 0 4 4 L14 15"/></svg>'
+  },
+  {id:'optimization', name:'Website Optimization', tag:'Performance', start:'₹12,999', time:'5–10 Days',
+    short:'Faster, leaner, higher-ranking — without a full rebuild.',
+    desc:'Performance, SEO and conversion optimization for existing websites. Get more speed, more traffic, and more conversions from the site you already own.',
+    approach:'Audit, prioritize, ship. We identify the highest-leverage improvements and implement them in a focused sprint.',
+    features:[
+      {t:'Core Web Vitals',d:'LCP, INP, CLS pushed into green.'},
+      {t:'On-Page SEO',d:'Headings, meta, schema, internal links.'},
+      {t:'Conversion Rate',d:'CRO audit with actionable changes.'},
+      {t:'Image Pipeline',d:'Next-gen formats and lazy loading.'},
+      {t:'Code Splitting',d:'Smaller bundles, faster TTI.'},
+      {t:'Reporting',d:'Before / after benchmarks delivered.'}
+    ],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21 a9 9 0 1 1 9-9 M12 12 L17 7"/></svg>'
+  },
+  {id:'custom', name:'Custom Web Solutions', tag:'Enterprise', start:'₹99,999+', time:'20–45 Days',
+    short:'Bespoke web platforms engineered for SaaS, AI, and enterprise.',
+    desc:'When templates won\'t cut it — custom design, custom UX, custom architecture. Built for SaaS startups, AI products, marketplaces, and enterprise web platforms.',
+    approach:'Discovery, technical architecture, design system, and full-stack engineering with the rigor of a product team — not a project.',
+    features:[
+      {t:'Custom Design',d:'No templates. Unique to your brand.'},
+      {t:'Custom Features',d:'Dashboards, auth, billing, integrations.'},
+      {t:'Enterprise Stack',d:'Modern, scalable, observable.'},
+      {t:'CI / CD',d:'Automated testing and deployment.'},
+      {t:'Cloud Native',d:'Edge, serverless, or your preferred cloud.'},
+      {t:'Long-Term Partner',d:'Roadmaps, retainers, dedicated team.'}
+    ],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L20 7 V17 L12 22 L4 17 V7 Z M12 2 V22 M4 7 L20 17 M20 7 L4 17"/></svg>'
+  }
+];
+
+const PLANS = [
+  {id:'starter', name:'Starter', price:'₹9,999', booking:'₹4,000', time:'5–7 Days',
+    eyebrow:'Best for shops & locals',
+    bestFor:['Small Shops','Local Businesses','Beginners'],
+    desc:'Get online with a professional, mobile-first website that earns trust from day one. Perfect for small shops and local businesses launching their first web presence.',
+    features:[
+      {t:'Mobile Responsive Design',d:'Pixel-perfect on every device.'},
+      {t:'Fast Loading',d:'Optimized for speed.'},
+      {t:'Modern UI',d:'Clean, on-brand visual design.'},
+      {t:'Contact Form',d:'Email-notified lead capture.'},
+      {t:'Basic SEO Setup',d:'Meta, sitemap, schema.'},
+      {t:'Professional Design',d:'No templates — designed for you.'}
+    ]
+  },
+  {id:'business', name:'Business', price:'₹19,999', booking:'₹6,000', time:'7–10 Days',
+    eyebrow:'Best for established brands', featured:true,
+    bestFor:['Restaurants','Clinics','Coaching Institutes','Agencies'],
+    desc:'A multi-page website with refined animations, advanced UI, and a polished brand presentation — ideal for established service businesses.',
+    features:[
+      {t:'Multi-Page Website',d:'Up to 6 fully designed pages.'},
+      {t:'Smooth Animations',d:'Cinematic motion throughout.'},
+      {t:'Advanced UI',d:'Editorial layouts and components.'},
+      {t:'Contact Forms',d:'Multiple forms with integrations.'},
+      {t:'SEO Setup',d:'Full on-page SEO foundation.'},
+      {t:'Professional Branding',d:'Visual identity tuned for web.'}
+    ]
+  },
+  {id:'premium', name:'Premium Brand', price:'₹34,999', booking:'₹10,000', time:'10–15 Days',
+    eyebrow:'Best for premium brands',
+    bestFor:['Startups','Fashion Brands','Gyms'],
+    desc:'Luxury UI, glassmorphism, 3D parallax and advanced animations — the full premium brand experience designed for ambitious startups and lifestyle brands.',
+    features:[
+      {t:'Luxury UI Design',d:'High-end, distinctive visual direction.'},
+      {t:'Advanced Animations',d:'Scroll-driven storytelling.'},
+      {t:'3D Parallax Effects',d:'Depth, motion, immersion.'},
+      {t:'Glassmorphism',d:'Refined glass surfaces and depth.'},
+      {t:'Premium Branding',d:'Brand-led, editorial design system.'},
+      {t:'Custom Components',d:'Hand-built UI not seen elsewhere.'}
+    ]
+  },
+  {id:'ecommerce', name:'E-Commerce', price:'₹59,999', booking:'₹18,000', time:'15–25 Days',
+    eyebrow:'Best for online stores',
+    bestFor:['Online Stores','Fashion Brands','Product Businesses'],
+    desc:'A complete e-commerce build with product management, premium shopping experience, optimized checkout and mobile-first design — ready to start selling.',
+    features:[
+      {t:'Product Management',d:'Variants, inventory, collections.'},
+      {t:'Shopping Experience',d:'Premium product browsing.'},
+      {t:'Premium UI',d:'Editorial-quality product pages.'},
+      {t:'Checkout Setup',d:'Friction-free, optimized checkout.'},
+      {t:'Mobile Optimization',d:'Mobile-first commerce flow.'},
+      {t:'Payment Integration',d:'Razorpay, Stripe, COD ready.'}
+    ]
+  },
+  {id:'elite', name:'Elite Custom', price:'₹99,999+', booking:'₹30,000+', time:'20–45 Days',
+    eyebrow:'Best for enterprise',
+    bestFor:['SaaS Startups','AI Companies','Large Businesses'],
+    desc:'Fully custom design and architecture for SaaS startups, AI products, and enterprise platforms — engineered for scale, performance and longevity.',
+    features:[
+      {t:'Fully Custom Design',d:'No templates. Original visual system.'},
+      {t:'Advanced UI/UX',d:'Research-led, product-grade interactions.'},
+      {t:'Custom Features',d:'Dashboards, auth, billing, APIs.'},
+      {t:'Enterprise Solutions',d:'Compliance, observability, SLAs.'},
+      {t:'High Performance',d:'Edge-rendered, scalable architecture.'},
+      {t:'Dedicated Team',d:'Designers, engineers, PM allocated.'}
+    ]
+  }
+];
+
+const MAINT = [
+  {name:'Basic Maintenance', price:'₹1,499', yearly:'₹14,999 / year — save ₹2,989',
+    features:['Daily Backups','Small Edits','Security Checks','Bug Fixes']},
+  {name:'Growth Maintenance', price:'₹2,999', yearly:'₹27,999 / year — save ₹7,989', featured:true,
+    features:['Everything in Basic','SEO Updates','Speed Optimization','Analytics Monitoring','Monthly Insights Report']},
+  {name:'Premium Maintenance', price:'₹5,999', yearly:'₹54,999 / year — save ₹16,989',
+    features:['Everything in Growth','Priority Support','Unlimited Minor Edits','Performance Monitoring','Dedicated Project Lead']}
+];
+
+const PORT = [
+  {id:'lumen', name:'Lumen Studios', tag:'Luxury Architecture', cls:'wide',
+    img:'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=80',
+    lead:'A cinematic portfolio for a Mumbai architecture studio.',
+    client:'Lumen Studios', scope:'Portfolio + CMS', result:'+220% Inquiries',
+    brief:'Lumen needed a portfolio that matched the quality of their architecture — minimal, considered, and confident.',
+    solution:'We designed an editorial portfolio with cinematic case studies, custom typography, and quiet, scroll-driven motion.',
+    outcome:'Inquiries grew 220% in the first quarter, with three flagship project wins directly attributed to the new site.'},
+  {id:'vela', name:'Vela Fashion', tag:'Premium E-Commerce', cls:'tall',
+    img:'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80',
+    lead:'A premium fashion store rebuilt from scratch.',
+    client:'Vela Fashion', scope:'E-Commerce', result:'+178% Revenue',
+    brief:'Vela wanted to move from a generic Shopify theme to a premium, brand-led storefront.',
+    solution:'Custom design system, story-driven PDPs, optimized checkout, and editorial content surfaces.',
+    outcome:'Revenue grew 178% in six months with a 64% lift in mobile conversion.'},
+  {id:'northwind', name:'Northwind AI', tag:'SaaS Marketing Site', cls:'tall',
+    img:'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80',
+    lead:'A precise, technical marketing site for an AI infra startup.',
+    client:'Northwind AI', scope:'Marketing Site', result:'4× Demo Requests',
+    brief:'A YC-backed AI infrastructure startup needed a site that signaled technical depth and trust.',
+    solution:'Refined typography system, interactive product visuals, and a clear architecture-led IA.',
+    outcome:'Demo requests grew 4× in the first month after launch.'},
+  {id:'kavya', name:'Kavya Clinic', tag:'Healthcare', cls:'wide',
+    img:'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80',
+    lead:'A warm, trustworthy clinic site with online booking.',
+    client:'Kavya Clinic', scope:'Business Website', result:'+310% Bookings',
+    brief:'Kavya needed a trustworthy, calming site with frictionless appointment booking.',
+    solution:'Soft visual language, doctor profiles, and a 3-step online booking flow.',
+    outcome:'Online bookings tripled within 60 days of launch.'},
+  {id:'forge', name:'Forge Gym', tag:'Lifestyle Brand', cls:'wide',
+    img:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80',
+    lead:'A bold, energetic site for a premium gym chain.',
+    client:'Forge Gym', scope:'Premium Brand', result:'+140% Memberships',
+    brief:'Forge wanted to position itself as the premium gym brand in its city.',
+    solution:'Cinematic hero, 3D parallax, glassmorphism, and a high-converting membership flow.',
+    outcome:'Membership signups grew 140% in three months.'},
+  {id:'atlas', name:'Atlas SaaS', tag:'Enterprise SaaS', cls:'tall',
+    img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
+    lead:'A custom marketing and dashboard experience for an analytics platform.',
+    client:'Atlas SaaS', scope:'Elite Custom', result:'5× Trial Signups',
+    brief:'Atlas needed a fully custom marketing site and onboarding dashboard.',
+    solution:'Bespoke design system, animated product walkthroughs, custom auth and billing.',
+    outcome:'Trial signups grew 5× and the activation rate doubled.'}
+];
+
+const FAQ = [
+  {q:'How much does a website cost?',a:'Our plans start at ₹9,999 for a Starter site and go up to ₹99,999+ for a fully custom Elite build. Most established businesses choose the Business or Premium Brand plan. We are transparent about pricing — no hidden fees, no surprise costs.'},
+  {q:'How do I book a project?',a:'Pick a plan, contact us, and we send a proposal within 1 business day. Once you confirm, you pay the booking amount (30–40% of the total) which locks your delivery slot. The remaining balance is due on launch.'},
+  {q:'Is the booking amount refundable?',a:'The booking amount is fully refundable until development begins. Once we start designing or coding, the booking becomes non-refundable as it covers reserved team time.'},
+  {q:'How long does a website take?',a:'Starter sites ship in 5–7 days, Business in 7–10, Premium Brand in 10–15, E-Commerce in 15–25, and Elite Custom in 20–45 days depending on scope.'},
+  {q:'Do I own my website?',a:'Yes. Full ownership transfers to you on final payment — including all source code, design files, and any third-party accounts created for your project.'},
+  {q:'Do you do revisions?',a:'Every plan includes three rounds of revisions across design and build. Additional revisions are charged at a transparent hourly rate.'},
+  {q:'What if I need help after launch?',a:'We offer Basic, Growth and Premium monthly maintenance plans — covering backups, edits, security, performance and analytics. Annual plans include up to two months free.'},
+  {q:'Do you guarantee SEO rankings or sales?',a:'We follow SEO best practices and design for conversion, but we do not guarantee specific rankings, traffic, sales or business results — these depend on many external factors.'},
+  {q:'Can you redesign my existing website?',a:'Yes. Our Website Redesign service preserves your SEO rankings while delivering a modern, performant, premium design.'},
+  {q:'Do you work internationally?',a:'Yes. We work with clients across 14 countries — fully remote, async-friendly, with clear communication and weekly milestones.'}
+];
+
+const TERMS = [
+  'A booking amount is required before development begins on any project.',
+  'The booking amount ranges between 30% and 40% of the total project cost depending on the plan and scope.',
+  'The booking amount becomes non-refundable once development has begun, as it covers reserved team time and initial work.',
+  'Additional revisions beyond the included rounds may incur extra charges at our standard hourly rate.',
+  'The client is responsible for providing content, images, branding assets, and timely approvals required to meet the delivery timeline.',
+  'Full ownership of the website — including source code and design files — is transferred to the client only after the final payment is settled.',
+  'Any hosting, domain, or service accounts created and managed by the Agency remain the property of the Agency unless otherwise agreed.',
+  'Website management and admin access can be transferred to the client upon written request after full payment is received.',
+  'Ongoing website maintenance is a separate service and is not included unless explicitly mentioned in the chosen package.',
+  'The Agency is not responsible for outages, downtime, or issues caused by third-party services, hosting providers, or external integrations.',
+  'The Agency does not guarantee specific sales, SEO rankings, traffic, conversions, or business outcomes resulting from the website.',
+  'The Agency reserves the right to showcase completed projects in its portfolio, case studies, and marketing materials.',
+  'Services may be suspended or terminated in the event of non-payment, policy violations, or breach of these terms.',
+  'All disputes shall first be attempted to be resolved through good-faith negotiation before any legal action is initiated.'
+];
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+function renderServices(target, max){
+  const list = max ? SERVICES.slice(0,max) : SERVICES;
+  document.getElementById(target).innerHTML = list.map(s=>`
+    <a href="#/service/${s.id}" data-link class="card svc-card">
+      <div>
+        <div class="icon">${s.icon}</div>
+        <h3>${s.name}</h3>
+        <p>${s.short}</p>
+      </div>
+      <span class="arrow">Explore Service
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+  `).join('');
+}
+
+function renderPlans(target){
+  document.getElementById(target).innerHTML = PLANS.map(p=>`
+    <a href="#/plan/${p.id}" data-link class="card price-card ${p.featured?'featured':''}">
+      ${p.featured?'<div class="price-badge">Most Popular</div>':''}
+      <div class="plan-name">${p.name}</div>
+      <div class="price">${p.price}<small>Booking ${p.booking}</small></div>
+      <div class="best-for">${p.eyebrow}</div>
+      <ul>${p.features.slice(0,5).map(f=>`<li>${f.t}</li>`).join('')}</ul>
+      <div class="delivery"><span>Delivery</span><b>${p.time}</b></div>
+      <span class="btn btn-ghost">View Plan
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+  `).join('');
+}
+
+function renderMaint(target){
+  document.getElementById(target).innerHTML = MAINT.map(m=>`
+    <div class="card maint-card ${m.featured?'featured':''}">
+      <div>
+        <h3>${m.name}</h3>
+        <div class="yearly">${m.yearly}</div>
+      </div>
+      <div class="price">${m.price}<small>/month</small></div>
+      <ul>${m.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+      <a href="#/contact" data-link class="btn btn-ghost" style="justify-content:center">Subscribe
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  `).join('');
+}
+
+function renderPortfolio(target, max){
+  const list = max ? PORT.slice(0,max) : PORT;
+  document.getElementById(target).innerHTML = list.map(p=>`
+    <a href="#/case/${p.id}" data-link class="port-item ${p.cls||''}">
+      <div class="port-thumb" style="background-image:url('${p.img}')"></div>
+      <div class="port-overlay">
+        <span class="tag">${p.tag}</span>
+        <h3>${p.name}</h3>
+        <p>${p.lead}</p>
+      </div>
+      <div class="port-arrow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+      </div>
+    </a>
+  `).join('');
+}
+
+function renderFAQ(){
+  document.getElementById('faqList').innerHTML = FAQ.map((f,i)=>`
+    <div class="faq-item" data-i="${i}">
+      <h3>${f.q}<span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5 V19 M5 12 H19"/></svg></span></h3>
+      <p>${f.a}</p>
+    </div>
+  `).join('');
+  document.querySelectorAll('.faq-item').forEach(el=>{
+    el.addEventListener('click',()=>el.classList.toggle('open'));
+  });
+}
+
+function renderTerms(){
+  document.getElementById('termsList').innerHTML = TERMS.map(t=>`<div class="item">${t}</div>`).join('');
+}
+
+function fillServiceDetail(id){
+  const s = SERVICES.find(x=>x.id===id); if(!s) return;
+  document.getElementById('svcCrumb').textContent = s.name;
+  document.getElementById('svcEyebrow').textContent = s.tag;
+  document.getElementById('svcTitle').innerHTML = s.name;
+  document.getElementById('svcLead').textContent = s.short;
+  document.getElementById('svcStart').textContent = s.start;
+  document.getElementById('svcTime').textContent = s.time;
+  document.getElementById('svcDesc').textContent = s.desc;
+  document.getElementById('svcApproach').textContent = s.approach;
+  document.getElementById('svcFacts').innerHTML = `
+    <li>Starting At<b>${s.start}</b></li>
+    <li>Delivery<b>${s.time}</b></li>
+    <li>Revisions<b>3 Rounds</b></li>
+    <li>Booking<b>30–40%</b></li>
+    <li>Support<b>30 Days Free</b></li>
+  `;
+  document.getElementById('svcFeatures').innerHTML = s.features.map(f=>`
+    <div class="f">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div><h4>${f.t}</h4><p>${f.d}</p></div>
+    </div>
+  `).join('');
+}
+
+function fillPlanDetail(id){
+  const p = PLANS.find(x=>x.id===id); if(!p) return;
+  document.getElementById('planCrumb').textContent = p.name;
+  document.getElementById('planEyebrow').textContent = p.eyebrow;
+  document.getElementById('planTitle').textContent = `${p.name} Plan`;
+  document.getElementById('planLead').textContent = p.desc;
+  document.getElementById('planPrice').textContent = p.price;
+  document.getElementById('planBooking').textContent = p.booking;
+  document.getElementById('planTime').textContent = p.time;
+  document.getElementById('planBestFor').innerHTML = p.bestFor.map(b=>`<li>${b}<b>✓</b></li>`).join('');
+  document.getElementById('planDesc').textContent = p.desc;
+  document.getElementById('planFeatures').innerHTML = p.features.map(f=>`
+    <div class="f">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div><h4>${f.t}</h4><p>${f.d}</p></div>
+    </div>
+  `).join('');
+}
+
+function fillCase(id){
+  const c = PORT.find(x=>x.id===id); if(!c) return;
+  document.getElementById('caseCrumb').textContent = c.name;
+  document.getElementById('caseTag').textContent = c.tag;
+  document.getElementById('caseTitle').textContent = c.name;
+  document.getElementById('caseLead').textContent = c.lead;
+  document.getElementById('caseClient').textContent = c.client;
+  document.getElementById('caseScope').textContent = c.scope;
+  document.getElementById('caseResult').textContent = c.result;
+  document.getElementById('caseHero').style.backgroundImage = `url('${c.img}')`;
+  document.getElementById('caseBrief').textContent = c.brief;
+  document.getElementById('caseSolution').textContent = c.solution;
+  document.getElementById('caseOutcome').textContent = c.outcome;
+  document.getElementById('caseFacts').innerHTML = `
+    <li>Client<b>${c.client}</b></li>
+    <li>Scope<b>${c.scope}</b></li>
+    <li>Year<b>2025</b></li>
+    <li>Outcome<b>${c.result}</b></li>
+  `;
+}
+
+/* =========================================================
+   ROUTER
+   ========================================================= */
+
+function route(){
+  const hash = location.hash.replace(/^#/,'') || '/';
+  const parts = hash.split('/').filter(Boolean);
+
+  // Trigger transition animation
+  const t = document.getElementById('pageTrans');
+  t.classList.add('run');
+  setTimeout(()=>t.classList.remove('run'), 700);
+
+  let page = 'home';
+  if(parts[0]==='services') page='services';
+  else if(parts[0]==='service' && parts[1]){ page='service-detail'; fillServiceDetail(parts[1]); }
+  else if(parts[0]==='pricing') page='pricing';
+  else if(parts[0]==='plan' && parts[1]){ page='plan-detail'; fillPlanDetail(parts[1]); }
+  else if(parts[0]==='portfolio') page='portfolio';
+  else if(parts[0]==='case' && parts[1]){ page='case'; fillCase(parts[1]); }
+  else if(parts[0]==='about') page='about';
+  else if(parts[0]==='process') page='process';
+  else if(parts[0]==='maintenance') page='maintenance';
+  else if(parts[0]==='faq') page='faq';
+  else if(parts[0]==='terms') page='terms';
+  else if(parts[0]==='contact') page='contact';
+
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const target = document.querySelector(`.page[data-page="${page}"]`);
+  if(target){ target.classList.add('active'); }
+
+  // active nav highlight
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a=>{
+    const h = a.getAttribute('href')||'';
+    a.classList.toggle('active', h === '#/'+parts[0] || (h==='#/' && page==='home'));
+  });
+
+  // Close mobile menu
+  document.getElementById('mobileMenu').classList.remove('open');
+
+  window.scrollTo({top:0, behavior:'instant'});
+  setTimeout(initReveals, 100);
+}
+
+/* =========================================================
+   REVEALS / CARDS / CURSOR / 3D
+   ========================================================= */
+
+function initReveals(){
+  const els = document.querySelectorAll('.reveal, .reveal-stagger');
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  els.forEach(el=>{ if(!el.classList.contains('in')) io.observe(el); });
+}
+
+function initCardGlow(){
+  document.querySelectorAll('.card').forEach(card=>{
+    if(card.dataset.glow) return; card.dataset.glow='1';
+    card.addEventListener('pointermove',e=>{
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      card.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+  });
+}
+
+function initCursor(){
+  if(matchMedia('(hover:none)').matches) return;
+  const c=document.querySelector('.cursor'), d=document.querySelector('.cursor-dot');
+  let x=0,y=0,tx=0,ty=0;
+  addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;d.style.transform=`translate(${tx}px,${ty}px) translate(-50%,-50%)`;});
+  (function tick(){ x+=(tx-x)*.18; y+=(ty-y)*.18; c.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%)`; requestAnimationFrame(tick);})();
+  document.addEventListener('mouseover',e=>{
+    if(e.target.closest('a,button,.card,.faq-item,.port-item')) c.classList.add('hover');
+  });
+  document.addEventListener('mouseout',e=>{
+    if(e.target.closest('a,button,.card,.faq-item,.port-item')) c.classList.remove('hover');
+  });
+}
+
+function init3D(){
+  const wrap = document.getElementById('heroVis');
+  const scene = document.getElementById('heroScene');
+  if(!wrap||!scene) return;
+  wrap.addEventListener('mousemove',e=>{
+    const r=wrap.getBoundingClientRect();
+    const x=(e.clientX-r.left-r.width/2)/r.width;
+    const y=(e.clientY-r.top-r.height/2)/r.height;
+    scene.style.transform=`rotateX(${8 - y*16}deg) rotateY(${-12 + x*22}deg)`;
+  });
+  wrap.addEventListener('mouseleave',()=>{ scene.style.transform=''; });
+}
+
+function initNavScroll(){
+  const n = document.getElementById('nav');
+  addEventListener('scroll',()=>{ n.classList.toggle('scrolled', scrollY>40); });
+}
+
+function initMobileMenu(){
+  const b=document.getElementById('menuBtn'), m=document.getElementById('mobileMenu');
+  b.addEventListener('click',()=>m.classList.toggle('open'));
+}
+
+function initLinks(){
+  document.body.addEventListener('click',e=>{
+    const a = e.target.closest('a[data-link]');
+    if(!a) return;
+    // hash routing — let default behavior occur but ensure no new tab
+    a.removeAttribute('target');
+  });
+}
+
+/* =========================================================
+   BOOT
+   ========================================================= */
+
+function boot(){
+  renderServices('svcGrid', 8);
+  renderServices('svcGridFull');
+  renderPlans('priceGridHome');
+  renderPlans('priceGridFull');
+  renderMaint('maintGrid');
+  renderMaint('maintGridFull');
+  renderPortfolio('portGridHome', 6);
+  renderPortfolio('portGridFull');
+  renderFAQ();
+  renderTerms();
+  initCardGlow();
+  initCursor();
+  init3D();
+  initNavScroll();
+  initMobileMenu();
+  initLinks();
+
+  addEventListener('hashchange', route);
+  route();
+
+  setTimeout(()=>document.getElementById('loader').classList.add('done'), 700);
+  setTimeout(initReveals, 200);
+  // re-init card glow after dynamic content
+  setTimeout(initCardGlow, 300);
+}
+
+document.readyState==='loading' ? addEventListener('DOMContentLoaded',boot) : boot();
+</script>
+</body>
+</html>
